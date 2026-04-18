@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
+  static const String apiUrl = 'https://scanlytic-ai-health-app.onrender.com';
+
   // Override with --dart-define=API_BASE_URL=http://<host>:5000 when needed.
   static const String _configuredBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
@@ -29,6 +31,9 @@ class ApiService {
   static String get baseUrl {
     if (_configuredBaseUrl.isNotEmpty) {
       return _normalizeBaseUrl(_configuredBaseUrl);
+    }
+    if (apiUrl.isNotEmpty) {
+      return _normalizeBaseUrl(apiUrl);
     }
     if (_configuredApiHost.isNotEmpty) {
       return 'http://${_configuredApiHost.trim()}:${_configuredApiPort.trim()}';
