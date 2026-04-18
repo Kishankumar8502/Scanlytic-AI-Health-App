@@ -1,58 +1,72 @@
 # 🧠 Scanlytic AI Health App
 
-A privacy-focused AI healthcare system that predicts disease risk using **Federated Learning principles** and **Machine Learning**.
+A privacy-focused AI healthcare system that predicts disease risk using **Machine Learning** and simulated **Federated Learning principles**.
+
+---
+
+## 🌐 Live Backend API
+
+👉 https://scanlytic-ai-health-app.onrender.com
+
+⚠️ Note: Free Render server may sleep after inactivity (first request may take 30–50 seconds)
 
 ---
 
 ## 🚀 Features
 
-* 📊 Disease Risk Prediction (Heart Disease)
+* 📊 Heart Disease Risk Prediction
 * 🤖 Machine Learning Model (Logistic Regression)
 * 🔄 Federated Learning Simulation (Multi-client training)
-* 🔐 Privacy-Preserving AI (Differential Privacy simulation)
-* 📱 Flutter Mobile App UI
+* 🔐 Differential Privacy (simulated noise addition)
+* 📱 Flutter Mobile App
 * 🚨 Real-time Risk Alerts
-* 👨‍⚕️ Doctor Dashboard (Patient monitoring)
+* 👨‍⚕️ Doctor Dashboard
 
 ---
 
 ## 🧠 How It Works
 
-1. User enters health data in the mobile app
+1. User enters health data in Flutter app
 2. Data is sent to Flask backend API
-3. Model predicts disease risk using trained ML model
-4. Risk percentage is returned and displayed
-5. High-risk patients are highlighted for doctors
+3. ML model predicts disease risk
+4. Risk percentage is returned
+5. High-risk patients are flagged
 
 ---
 
 ## 🔄 Federated Learning (Simulation)
 
-* Dataset is divided into multiple clients
-* Each client trains its own local model
-* Only model parameters (not raw data) are shared
-* Aggregation is done using Federated Averaging
-* Privacy noise is added to simulate Differential Privacy
+* Dataset split into multiple clients
+* Each client trains locally
+* Only model parameters shared
+* Aggregation via Federated Averaging
+* Noise added for privacy simulation
 
 ---
 
 ## 🧱 Tech Stack
 
 * **Frontend:** Flutter
-* **Backend:** Python Flask
+* **Backend:** Flask (Python)
 * **ML:** Scikit-learn
 * **Concepts:** Federated Learning, Differential Privacy
 
 ---
 
-## ⚙️ Setup Instructions
+## 📂 Project Structure
+
+backend/ → Flask API (deployed on Render)
+scanlytics/ → Flutter mobile app
+
+---
+
+## ⚙️ Run Locally (Optional)
 
 ### 🔹 Backend
 
 ```bash
 cd backend
 pip install -r requirements.txt
-python train_model.py
 python app.py
 ```
 
@@ -68,17 +82,17 @@ flutter run
 
 ---
 
-## 🌐 API Configuration
+## 📱 API Configuration (IMPORTANT)
 
-⚠️ Update API base URL in Flutter before running:
+Update API URL in Flutter:
 
 ```dart
-const String baseUrl = "http://YOUR_IP:5000";
+const String baseUrl = "https://scanlytic-ai-health-app.onrender.com";
 ```
 
 ---
 
-## ⚠️ Note
+## ⚠️ Notes
 
 * This is a **prototype system**
 * Federated Learning is **simulated**
@@ -88,10 +102,11 @@ const String baseUrl = "http://YOUR_IP:5000";
 
 ## 🚀 Future Improvements
 
-* Firebase Authentication (User & Doctor roles)
-* Real-time wearable data integration
-* Secure encrypted aggregation
-* Cloud deployment (Render / AWS)
+* Firebase Authentication
+* Real-time wearable integration
+* Secure aggregation
+* Model improvement (Random Forest / XGBoost)
+* Full production deployment
 
 ---
 
@@ -101,87 +116,6 @@ Kishan Kumar
 
 ---
 
+## ⭐ Support
 
-## ▶️ Running the App (Full Setup)
-
-### 🔹 Step 1: Start Backend Server
-
-```bash
-cd backend
-python app.py
-```
-
-Make sure Flask is running on:
-
-```
-http://0.0.0.0:5000
-```
-
----
-
-### 🔹 Step 2: Find Your Local IP
-
-Run:
-
-```bash
-ipconfig
-```
-
-Copy your IPv4 address (example):
-
-```
-192.168.X.X
-```
-
----
-
-### 🔹 Step 3: Update API URL in Flutter
-
-Go to:
-
-```
-lib/services/api_service.dart
-```
-
-Update:
-
-```dart
-const String baseUrl = "http://192.168.X.X:5000";
-```
-
----
-
-### 🔹 Step 4: Connect Device
-
-* Ensure **mobile phone and laptop are on same WiFi**
-* Enable USB debugging OR use wireless debugging
-
----
-
-### 🔹 Step 5: Run Flutter App
-
-```bash
-cd scanlytics
-flutter run
-```
-
----
-
-### 🔹 Step 6: Test the App
-
-* Enter patient data
-* Click **Analyze Risk**
-* View real-time prediction results
-
----
-
-## ⚠️ Troubleshooting
-
-* ❌ Connection timeout → Check IP & WiFi
-* ❌ API not working → Ensure Flask is running
-* ❌ Wrong results → Verify input format
-
----
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub!
+If you like this project, give it a ⭐ on GitHub!
